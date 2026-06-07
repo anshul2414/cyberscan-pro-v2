@@ -1,0 +1,12 @@
+services:
+  cyberscan:
+    build: .
+    image: cyberscan-pro:latest
+    container_name: cyberscan-pro
+    ports:
+      - "8080:5000"
+    environment:
+      - DB_PATH=/data/cyberscan.db
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
